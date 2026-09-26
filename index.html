@@ -65,7 +65,7 @@
 
     <footer>
       <p>&copy; 2025 Homebrew Coffee Guide. All rights reserved.</p>
-      <p>This is a demo publisher page for a GAM/Prebid audit lab case.</p>
+      <p>Independent reviews and brewing guides for home coffee enthusiasts.</p>
     </footer>
   </div>
 
@@ -116,29 +116,19 @@
         debug: false,
         enableSendAllBids: true,
         bidderTimeout: 2500,
-        priceGranularity: 'medium',
-        consentManagement: {
-          gdpr: {
-            cmpApi: 'iab',
-            timeout: 500
-          },
-          usp: {
-            cmpApi: 'iab',
-            timeout: 500
-          }
-        }
+        priceGranularity: 'medium'
       });
 
       pbjs.requestBids({
         bidsBackHandler: function() {
           pbjs.setTargetingForGPTAsync();
-          googletag.pubads().refresh();
+          if (window.googletag && googletag.pubads && googletag.pubads()) { googletag.pubads().refresh(); }
         }
       });
     });
   </script>
 
-  <!-- GPT (Google Publisher Tags) - stubbed for demo -->
+  <!-- Google Publisher Tags -->
   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
   <script>
     window.googletag = window.googletag || {cmd: []};

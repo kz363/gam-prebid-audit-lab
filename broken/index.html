@@ -60,14 +60,14 @@
 
     <footer>
       <p>&copy; 2025 Homebrew Coffee Guide. All rights reserved.</p>
-      <p>This is a BROKEN demo publisher page for GAM/Prebid audit lab case.</p>
+      <p>Coverage of single-origin roasters, grind guides, and gear reviews — updated weekly.</p>
     </footer>
   </div>
 
   <!-- Prebid.js loaded from official CDN -->
   <script src="../vendor/prebid.js"></script>
 
-  <!-- Inline Prebid initialization with  severe flaws -->
+  <!-- Inline Prebid initialization -->
   <script>
     var pbjs = pbjs || {};
     pbjs.que = pbjs.que || [];
@@ -105,34 +105,26 @@
 
       pbjs.setConfig({
         debug: true,
-        bidderTimeout: 5000, // SEVERE: Extremely high timeout
-        priceGranularity: 'low', // SEVERE: Very coarse granularity
-        // SEVERE: Missing consent management entirely
-        // SEVERE: No user sync
-        // SEVERE: No S2S config
+        bidderTimeout: 5000,
+        priceGranularity: 'low'
       });
 
-      // FLAW #1: Duplicate requestBids calls
       pbjs.requestBids({
         bidsBackHandler: function() {
           pbjs.setTargetingForGPTAsync();
-          googletag.pubads().refresh();
+          if (window.googletag && googletag.pubads && googletag.pubads()) { googletag.pubads().refresh(); }
         }
       });
       
-      // FLAW #2: Second duplicate requestBids call (wastes resources, causes conflicts)
       pbjs.requestBids({
         bidsBackHandler: function() {
-          // Second handler might conflict with first
           pbjs.setTargetingForGPTAsync();
-          googletag.pubads().refresh();
+          if (window.googletag && googletag.pubads && googletag.pubads()) { googletag.pubads().refresh(); }
         }
       });
       
-      // FLAW #3: Conflicting ad unit IDs - reusing same code for different slots
-      // This would cause targeting issues
       var conflictingAdUnit = {
-        code: 'leaderboard-ad', // SAME CODE AS ABOVE - CONFLICT!
+        code: 'leaderboard-ad',
         mediaTypes: {
           banner: {
             sizes: [[300, 250]]
@@ -142,13 +134,11 @@
           { bidder: 'appnexus', params: { placementId: '99999999' } }
         ]
       };
-      
-      // Note: In real implementation, pbjs.addAdUnits(conflictingAdUnit) would cause issues
-      // but we're not adding it to demonstrate the concept
+      pbjs.addAdUnits(conflictingAdUnit);
     });
   </script>
 
-  <!-- GPT (Google Publisher Tags) - stubbed for demo -->
+  <!-- Google Publisher Tags -->
   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
   <script>
     window.googletag = window.googletag || {cmd: []};
