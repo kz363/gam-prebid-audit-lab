@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Homebrew Coffee Guide — expert brewing guides, bean reviews, and equipment recommendations for coffee enthusiasts.">
+  <title>Homebrew Coffee Guide — Brew Better Coffee at Home</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #2D2D2D; background: #FAF8F5; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    header { padding: 40px 0 20px; border-bottom: 1px solid #E8E4DF; }
+    h1 { font-size: 2.5rem; font-weight: 700; color: #3D2B1F; margin-bottom: 8px; }
+    .tagline { color: #6B5B4F; font-size: 1.1rem; }
+    .ad-slot { background: #F0EDE8; border: 1px dashed #C9C0B3; min-height: 90px; display: flex; align-items: center; justify-content: center: center; color: #8B7D6B; font-size: 0.875rem; margin: 24px 0; position: relative; }
+    .ad-slot::before { content: "Advertisement"; position: absolute; top: -12px; left: 12px; background: #6F4E37; color: white; padding: 2px 8px; font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .content { padding: 24px 0; }
+    article { margin-bottom: 40px; }
+    h2 { font-size: 1.5rem; color: #3D2B1F; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #6F4E37; }
+    p { margin-bottom: 16px; color: #4A4038; }
+    .in-content-ad { margin: 32px 0; }
+    footer { padding: 32px 0; border-top: 1px solid #E8E4DF; color: #8B7D6B; font-size: 0.875rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Homebrew Coffee Guide</h1>
+      <p class="tagline">Expert brewing guides, bean reviews & equipment for coffee enthusiasts</p>
+    </header>
+
+    <!-- Leaderboard ad slot (top of page) -->
+    <div id="leaderboard-ad" class="ad-slot" style="width: 728px; height: 90px; margin: 0 auto 24px;">
+      Leaderboard (728×90)
+    </div>
+
+    <main class="content">
+      <article>
+        <h2>How to Brew the Perfect Pour-Over</h>
+        <p>Pour-over coffee highlights the nuanced flavors of single-origin beans. The key variables are grind size, water temperature, pour technique, and brew ratio. Start with a 1:16 coffee-to-water ratio, water at 205°F (96°C), and a medium-fine grind.</p>
+        <p>Place your filter in the dripper, rinse with hot water, add coffee, and bloom with 2x the coffee weight in water for 30 seconds. Then pour in slow, concentric circles maintaining a consistent water level.</p>
+      </article>
+
+      <!-- In-content ad slot -->
+      <div id="in-content-ad" class="ad-slot in-content-ad" style="width: 100%; min-height: 250px;">
+        In-Content Rectangle (300×250 / 336×280)
+      </div>
+
+      <article>
+        <h2>Choosing the Right Grinder</h2>
+        <p>A quality burr grinder is the single most impactful equipment upgrade. Conical burrs (like the Baratza Encore) offer excellent value, while flat burrs (Niche Zero, Fellow Ode) provide superior particle uniformity for espresso and filter alike.</p>
+        <p>Grind consistency directly affects extraction evenness. Inconsistent grinds produce both over-extracted fines (bitter) and under-extracted boulders (sour) simultaneously.</p>
+      </article>
+
+      <article>
+        <h2>Water Chemistry for Coffee</h2>
+        <p>Water makes up 98% of your cup. The Specialty Coffee Association recommends 150 ppm total dissolved solids, 40 ppm calcium hardness, and 40 ppm alkalinity. Third Wave Water packets or a simple DIY recipe (epsom salt + baking soda in distilled) can transform flat coffee into vibrant, balanced brews.</p>
+      </article>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Homebrew Coffee Guide. All rights reserved.</p>
+      <p>This is a BROKEN demo publisher page for GAM/Prebid audit lab case.</p>
+    </footer>
+  </div>
+
+  <!-- Prebid.js loaded from official CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prebid/8.50.0/prebid.js" integrity="sha512-verified-integrity-placeholder" crossorigin="anonymous" referrerpolicy="origin"></script>
+
+  <!-- Inline Prebid initialization with  severe flaws -->
+  <script>
+    var pbjs = pbjs || {};
+    pbjs.que = pbjs.que || [];
+
+    pbjs.que.push(function() {
+      var adUnits = [
+        {
+          code: 'leaderboard-ad',
+          mediaTypes: {
+            banner: {
+              sizes: [[728, 90], [970, 90]]
+            }
+          },
+          bids: [
+            { bidder: 'appnexus', params: { placementId: '12345678' } },
+            { bidder: 'rubicon', params: { accountId: '12345', siteId: '67890', zoneId: '11111' } },
+            { bidder: 'pubmatic', params: { publisherId: '12345', adSlot: 'leaderboard' } }
+          ]
+        },
+        {
+          code: 'in-content-ad',
+          mediaTypes: {
+            banner: {
+              sizes: [[300, 250]]
+            }
+          },
+          bids: [
+            { bidder: 'appnexus', params: { placementId: '87654321' } },
+            { bidder: 'rubicon', params: { accountId: '12345', siteId: '67890', zoneId: '22222' } }
+          ]
+        }
+      ];
+
+      pbjs.addAdUnits(adUnits);
+
+      pbjs.setConfig({
+        debug: true,
+        bidderTimeout: 5000, // SEVERE: Extremely high timeout
+        priceGranularity: 'low', // SEVERE: Very coarse granularity
+        // SEVERE: Missing consent management entirely
+        // SEVERE: No user sync
+        // SEVERE: No S2S config
+      });
+
+      // FLAW #1: Duplicate requestBids calls
+      pbjs.requestBids({
+        bidsBackHandler: function() {
+          pbjs.setTargetingForGPTAsync();
+          googletag.pubads().refresh();
+        }
+      });
+      
+      // FLAW #2: Second duplicate requestBids call (wastes resources, causes conflicts)
+      pbjs.requestBids({
+        bidsBackHandler: function() {
+          // Second handler might conflict with first
+          pbjs.setTargetingForGPTAsync();
+          googletag.pubads().refresh();
+        }
+      });
+      
+      // FLAW #3: Conflicting ad unit IDs - reusing same code for different slots
+      // This would cause targeting issues
+      var conflictingAdUnit = {
+        code: 'leaderboard-ad', // SAME CODE AS ABOVE - CONFLICT!
+        mediaTypes: {
+          banner: {
+            sizes: [[300, 250]]
+          }
+        },
+        bids: [
+          { bidder: 'appnexus', params: { placementId: '99999999' } }
+        ]
+      };
+      
+      // Note: In real implementation, pbjs.addAdUnits(conflictingAdUnit) would cause issues
+      // but we're not adding it to demonstrate the concept
+    });
+  </script>
+
+  <!-- GPT (Google Publisher Tags) - stubbed for demo -->
+  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <script>
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+      googletag.defineSlot('/1234567/homebrew-coffee-guide/leaderboard', [[728, 90], [970, 90]], 'leaderboard-ad')
+        .addService(googletag.pubads());
+      googletag.defineSlot('/1234567/homebrew-coffee-guide/in-content', [[300, 250]], 'in-content-ad')
+        .addService(googletag.pubads());
+      googletag.pubads().enableSingleRequest();
+      googletag.pubads().collapseEmptyDivs();
+      googletag.enableServices();
+    });
+  </script>
+</body>
+</html>

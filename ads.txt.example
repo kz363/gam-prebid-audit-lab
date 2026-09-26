@@ -1,0 +1,27 @@
+# Homebrew Coffee Guide - Example ads.txt (DELIBERATELY INCOMPLETE)
+# This file demonstrates a common issue: missing authorized sellers
+# 
+# REALISTIC SCENARIO: Publisher forgot to update ads.txt after adding new bidders
+# or missed one line during manual updates
+#
+# MISSING LINE: rubicon line ( omission for demo)
+#
+# Format: # Exchange Name, Seller Account ID, Type of Relationship, Certification ID (if applicable)
+# Type: DIRECT = direct relationship, RESELLER = authorized reseller
+
+# AppNexus (Xandr)
+a976533326.homebrew-coffee-guide.com, DIRECT, d18f1bba9e6a375d
+
+# PubMatic
+pubmatic.com, 123456, DIRECT
+
+# OpenX
+openx.com, 987654321, DIRECT
+
+# Index Exchange
+indexexchange.com, 123456, DIRECT
+
+# MISSING: Rubicon Line - This is the  omission
+# rubiconproject.com, 12345, DIRECT
+
+# Note: In a real audit, we'd check that all bidders in Prebid config have corresponding ads.txt entries
